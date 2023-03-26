@@ -20,7 +20,34 @@ let promise1 = new Promise((res,rej)=>{
 console.log('e'); */
 const http= require('http');
 const server = http.createServer((req,res)=>
-{console.log('Server created by Abhay');}
+{   console.log(req.url);
+    const getUrl= req.url;
+    res.setHeader('Content-Type','text/html');
+    if(getUrl==='/home')
+    {
+        res.write('<html>');
+        res.write('<head><title>Home Page</title></head>');
+        res.write('<body><p>Welcome Home</p></body>');
+        res.write('</html>');
+        res.end();
+    }
+    if(getUrl==='/about')
+    {
+        res.write('<html>');
+        res.write('<head><title>Home Page</title></head>');
+        res.write('<body><p>Welcome to about us page</p></body>');
+        res.write('</html>');
+        res.end();
+    }
+    if(getUrl==='/node')
+    {
+        res.write('<html>');
+        res.write('<head><title>Home Page</title></head>');
+        res.write('<body><p>Welcome to my node js project</p></body>');
+        res.write('</html>');
+        res.end();
+    }
+}
 );
-server.listen(4000);
+server.listen(3000);
 
